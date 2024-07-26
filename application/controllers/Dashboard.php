@@ -7,11 +7,13 @@ class Dashboard extends CI_Controller {
 		parent::__construct();
 		permission();
 		$this->load->model("games_model");
+		$this->load->model("users_model");
 	}
 
 	public function index()
 	{   
 		$data['games'] = $this->games_model->index();
+		$data['users'] = $this->users_model->index();
 		$data['title'] = "Dashboard - CodeIgniter.";
 		
 		$this->load->view('templates/header', $data);

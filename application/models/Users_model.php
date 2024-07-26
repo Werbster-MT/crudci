@@ -3,8 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users_model extends CI_Model {
     public function index() {
-        // "SELECT *  FROM tb_games";
-        return $this->db->get("tb_games")->result_array();
+        return $this->db->get("tb_users")->result_array();
     }
 
     public function store($user) {
@@ -12,18 +11,18 @@ class Users_model extends CI_Model {
     }
 
     public function show($id) {
-        return $this->db->get_where("tb_games", array(
+        return $this->db->get_where("tb_users", array(
             "id" => $id
         ))->row_array();
     }
 
-    public function update($id, $game) {
+    public function update($id, $user) {
         $this->db->where("id", $id);
-        return $this->db->update("tb_games", $game);
+        return $this->db->update("tb_users", $user);
     }
 
     public function destroy($id) {
         $this->db->where("id", $id);
-        return $this->db->delete("tb_games");
+        return $this->db->delete("tb_users");
     }
 }

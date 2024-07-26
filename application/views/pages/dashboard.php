@@ -32,7 +32,15 @@
           <td><?= $game['price']?></td>
           <td><?= $game['developer']?></td>
           <td><?= $game['release_date']?></td> 
-          <td>xxx</td>
+          <td>
+							<a href="<?= base_url()?>games/edit/<?= $game['id']?>" class="btn btn-sm btn-warning">
+								<i class="fas fa-pencil-alt"></i>
+							</a>
+							
+							<a href="javascript:goDelete(<?=$game['id']?>)"  class="btn btn-sm btn-danger">
+								<i class="fas fa-trash-alt"></i>
+							</a>
+						</td>
         </tr>
       <?php endforeach;?>
     </tbody>
@@ -54,7 +62,13 @@
       </tr>
     </thead>
     <tbody>
-      
+    <?php foreach($users as $user): ?>              
+        <tr>
+          <td><?= $user['id']?></td>
+          <td><?= $user['name']?></td>
+          <td><?= $user['email']?></td>
+          <td><?= $user['country']?></td>
+      <?php endforeach;?>
     </tbody>
   </table>
 </div>
